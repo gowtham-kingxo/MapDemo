@@ -12,6 +12,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -48,6 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(MapsActivity.this,"Hello "+cricketers.get(i), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 //hellooo
 
@@ -57,9 +59,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(13.088766, 80.208577);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker at Anna nagar"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,15));
+      //  LatLng sydney = new LatLng(13.088766, 80.208577);
+       // mMap.addMarker(new MarkerOptions().position(sydney).title("Marker at Anna nagar"));
 
+        LatLng shop1 = new LatLng(13.12138462067,80.15053558350);
+        LatLng shop2 = new LatLng(13.12067699432,80.15048980713);
+        LatLng shop3 = new LatLng(13.12047576904,80.15047454834);
+        LatLng shop4 = new LatLng(12.98691082001,80.18571472168);
+        LatLng user = new LatLng(12.9753604,80.19012190000001);
+        mMap.addMarker(new MarkerOptions().position(shop1).title("shop1").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(shop2).title("shop2").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(shop3).title("shop3").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(shop4).title("shop4").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.addMarker(new MarkerOptions().position(user).title("user").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user,10));
     }
 }
